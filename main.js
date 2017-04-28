@@ -5,7 +5,6 @@ var options = require('./libs/options');
 
 var dns = require('dns');
 var async = require('async');
-var geoip = require('geoip-lite');
 
 
 var evilscan = function(opts,cb) {
@@ -206,7 +205,7 @@ evilscan.prototype.lookupGeo = function(ip,cb) {
         return cb(null,this.cacheGeo[ip]);
     }
 
-    var geo = geoip.lookup(ip);
+    var geo = null;
     cb(null, geo);
 };
 
